@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to tell when your chatbot is reading the wrong page</title>
+  <meta name="author" content="D. Raju">
+</head>
+<body>
+<article>
+<h1>How to tell when your chatbot is reading the wrong page</h1>
+<p><em>By D. Raju · 25 November 2026</em></p>
+<p>When a support chatbot trained on your own site gives a wrong answer, the cause is often not “the model is bad.” It is that the bot retrieved the wrong piece of text: an old blog post instead of the current price list, a shipping page for a different region, or a paragraph you left on the site “for reference” and forgot.</p>
+
+<p>You can diagnose this without being an engineer. The method is to compare three things: the question, the answer, and the source the answer should have come from. This article is about that comparison, not about how embeddings work.</p>
+
+<h2>Start with questions that have a single correct source</h2>
+
+<p>Pick five questions whose answers live in one obvious place. A current price. A delivery cutoff. A cancellation window. An opening-hour exception. A booking rule.</p>
+
+<p>Ask each question in a private window, as a customer would, including a typo or a shorter wording. Write down the reply. Then open the page you believe is authoritative and see whether the figures match.</p>
+
+<p>If they match, move on. If they do not, you have a retrieval or a freshness problem, not a tone problem. Changing the bot’s “personality” will not fix it.</p>
+
+<p>If you use a tool that lets you inspect what was used to form the answer, look at that first. If you cannot see the source, you can still infer it: distinctive phrases in the reply often appear verbatim on a page. Search your own site for a sentence the bot used. You may find it on a page you did not expect.</p>
+
+<h2>The usual ways a wrong page wins</h2>
+
+<p>An old page that still ranks, or is still in the file list, will often beat a new page if the old one is longer or more specific. A PDF price list from last season, left in the knowledge base, will beat a short new paragraph on the website. A FAQ that lists every country will beat a one-line shipping notice for your actual delivery area.</p>
+
+<p>A second, quieter failure is a near-miss: the bot finds the right topic and the wrong exception. “Returns within 14 days” may sit on the same page as “sale items cannot be returned.” If the visitor bought a sale item and the bot quotes the 14-day rule, the retrieval was only half right. Treat that as a fail.</p>
+
+<p>A third failure is a page written for staff, or a draft, that was never meant for customers. If it is in the corpus, the bot may use it.</p>
+
+<h2>What to do when you have found the wrong source</h2>
+
+<p>Do not add a new page that repeats the correct rule in slightly different words. That gives the bot two sources to choose from. Update or remove the wrong source.</p>
+
+<ul>
+<li>If the page is outdated, update it or unpublish it, and remove the old file from the bot’s sources.</li>
+<li>If two pages disagree, keep one public rule and make the other redirect or clearly defer to it.</li>
+<li>If the right page is too thin, add the missing figure there, under a clear heading, rather than hiding it in a blog post.</li>
+</ul>
+
+<p>Then wait for the source to sync, and ask the same question again. If you do not retest, you will only hope the fix worked.</p>
+
+<p>Products that <a href="https://chatnory.com/features/">train on your website and files</a> are only as current as those sources. That is a feature of the design, not a defect, but it means source hygiene is part of support, not an occasional technical chore.</p>
+
+<h2>A short weekly pass is enough</h2>
+
+<p>You do not need to test every question every day. Once a week, ask the five questions that would cost you money if they were wrong, and search the inbox for replies that mention a number. If a number appears, check it against the current page.</p>
+
+<p>When a new exception starts — a holiday closing, a temporary delay, a price change — add that question to the list the same day. The wrong-page problem shows up fastest in the first 48 hours after a change.</p>
+
+<p>If your site is on WordPress, a plugin can keep published pages in sync so you are not maintaining a second, drifting copy of the same text. The <a href="https://chatnory.com/wordpress-plugin/">official WordPress plugin for ChatNory</a> is built for that. You still have to decide which pages are authoritative.</p>
+
+<h2>When the source is right and the answer is still wrong</h2>
+
+<p>Sometimes the page is correct and the bot still misses it. Make the figure easier to find: one heading, one current date, no contradictory older paragraph. Ask the question in the visitor’s wording, not only in the heading you wrote. If it still fails, that topic should go to a person until you have rewritten the page.</p>
+
+<p>The <a href="https://chatnory.com/pricing/">current plans</a> start with a 30-day free trial of the full package if you want to run this kind of check on a live tool. Paid plans are Starter at $12, Pro at $42, Enterprise at $239, and Enterprise Plus at $479 a month, with yearly billing about 30 percent lower, and founding prices locked for life on plans started before 31 December 2026.</p>
+
+<p>A chatbot that reads your own material will not outsmart a messy site. If you can point to the page it should have used, and you can take the other page away, you can usually fix the answer without changing models.</p>
+
+<p>If you want to run these checks on a bot trained on your own pages, start at <a href="https://chatnory.com/">chatnory.com</a> and keep the widget unpublished until the five questions match the pages you trust.</p>
+
+<p><em>D. Raju builds ChatNory, a multilingual AI support chat for small businesses.</em></p>
+</article>
+</body>
+</html>
